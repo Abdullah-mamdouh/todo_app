@@ -77,8 +77,7 @@ class _SchedulePageState extends State<SchedulePage> {
             ),
             MyDivider(),
             SizedBox(height: 10),
-            /////////////////
-            //SizedBox(height: 10),
+            
             BlocConsumer<AppBloc, AppStates>(
                 listener: (context, state) {},
                 builder: (context, state) {
