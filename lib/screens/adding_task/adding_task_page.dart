@@ -68,7 +68,7 @@ class _AddingTaskPageState extends State<AddingTaskPage> {
         builder: (context, state) {
           return Scaffold(
             body: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,7 +91,7 @@ class _AddingTaskPageState extends State<AddingTaskPage> {
                             ),
                             TextFieldClass(
                                 controller: titleController,
-                                hintText: 'Design team meeting'),
+                                hintText: 'Task Name'),
                             SizedBox(
                               height: 20,
                             ),

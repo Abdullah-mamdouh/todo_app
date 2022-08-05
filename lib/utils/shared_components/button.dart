@@ -11,9 +11,9 @@ class Button extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
 
-        padding: EdgeInsets.all(16),
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.all(18),
         shape: new RoundedRectangleBorder(
         borderRadius: new BorderRadius.circular(20.0),
       ),),
@@ -22,28 +22,6 @@ class Button extends StatelessWidget {
         text,
         style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
       ),),onPressed: ()=> onClick(),);
-  }
-
-}
-
-class ImageButton extends StatelessWidget {
-  ImageButton({Key? key,required this.imageAsset,required this.color}) : super(key: key);
-  String imageAsset ;
-  Color color;
-  @override
-  Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
-    return GestureDetector(
-      child: Container(
-          width: w,
-          height: h * 0.06,
-          decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(15)),
-          child: Center(child: Image.asset(imageAsset))),
-      onTap: () {},
-    );
   }
 
 }

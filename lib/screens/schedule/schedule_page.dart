@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:todo/screens/schedule/widget/date_time_line.dart';
 import 'package:todo/screens/schedule/widget/task_card.dart';
 import 'package:todo/utils/constant_color/constant_colors.dart';
+import 'package:todo/utils/notification/task_notification.dart';
 import 'package:todo/utils/shared_components/app_bar.dart';
 
 import '../../model/task.dart';
@@ -24,9 +25,11 @@ class _SchedulePageState extends State<SchedulePage> {
   TextEditingController? _selectedDateTime;
   ConstantColors constantColors = ConstantColors();
   DateTime dateTime = DateTime.now();
+  NotificationTask notificationTask = NotificationTask();
   @override
   void initState() {
     _selectedDateTime = TextEditingController();
+    notificationTask.initializeNotification();
     super.initState();
   }
 
@@ -48,28 +51,28 @@ class _SchedulePageState extends State<SchedulePage> {
             //     //dateController: _selectedDateTime!
             //     ),
             MyDivider(),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             DatePicker(
               DateTime.now(),
-              height: 100,
-              width: 70,
+              width: 65,
+              height: 85.0,
               initialSelectedDate: DateTime.now(),
               selectionColor: constantColors.primaryColor,
               selectedTextColor: Colors.white,
-              dateTextStyle: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,),
-              dayTextStyle: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,),
-              monthTextStyle: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,),
+              dateTextStyle: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
+              dayTextStyle: const TextStyle(
+                fontSize: 15.5,
+                fontWeight: FontWeight.bold,
+              ),
               onDateChange: (date) {
+                // New date selected
                 setState(() {
                   dateTime = date;
-                  //widget.dateController.text = DateFormat('y-MM-d').format(widget.dateTime);
-                });
+                },
+                );
               },
             ),
             MyDivider(),
@@ -86,6 +89,11 @@ class _SchedulePageState extends State<SchedulePage> {
                       List<Task> tasks = AppBloc.get(context).tasks;
 
                       if (tasks[index].repeat!.compareTo('Daily') == 0) {
+                        //debugPrint(tasks[index].startTime!.split(':')[1]);
+                        debugPrint(DateFormat('HH:mm')
+                            .parse(tasks[index].startTime!).minute
+                            .toString());
+                       notificationTask.scheduledNotification(tasks[index]);
                         return AnimationConfiguration.staggeredList(
                             position: index,
                             child: TaskCard(

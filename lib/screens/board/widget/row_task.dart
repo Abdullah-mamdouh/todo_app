@@ -19,17 +19,6 @@ class _TaskRowState extends State<TaskRow> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        /*Container(
-          child: Icon(Icons.done, color: constantColors.baseColor),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            border: Border.all(
-              color: constantColors.primaryColor,
-              width: 1.0,
-            ),
-          ),
-        ),
-        */
         MyCheckbox(task: widget.task),
         SizedBox(
           width: 20,

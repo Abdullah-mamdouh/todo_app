@@ -23,23 +23,28 @@ class _DateTimeLineState extends State<DateTimeLine> {
   Widget build(BuildContext context) {
     //debugPrint(DateFormat('y-MM-d').format(widget.dateTime));
     return DatePicker(
-        DateTime.now(),
-        height: 100,
-        width: 70,
-        initialSelectedDate: DateTime.now(),
-        selectionColor: constantColors.primaryColor,
-        selectedTextColor: Colors.white,
-        dateTextStyle: TextStyle(
-            fontSize: 18, fontWeight: FontWeight.w600, color: Colors.grey),
-        dayTextStyle: TextStyle(
-            fontSize: 18, fontWeight: FontWeight.w600, color: Colors.grey),
-        onDateChange: (date) {
-          setState(() {
-            widget.dateTime = date;
-            //widget.dateController.text = DateFormat('y-MM-d').format(widget.dateTime);
-          });
-        },
-      );
+      DateTime.now(),
+      width: 65,
+      height: 85.0,
+      initialSelectedDate: DateTime.now(),
+      selectionColor: Colors.green.shade700,
+      selectedTextColor: Colors.white,
+      dateTextStyle: const TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+      ),
+      dayTextStyle: const TextStyle(
+        fontSize: 15.5,
+        fontWeight: FontWeight.bold,
+      ),
+      onDateChange: (date) {
+        // New date selected
+        setState(() {
+                widget.dateTime = date;
+          },
+        );
+      },
+    );
 
   }
 }

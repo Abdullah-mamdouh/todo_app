@@ -30,7 +30,7 @@ class _DeadlineButtonState extends State<DeadlineButton> {
         getDate(context);
       },
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: Colors.black12,
           borderRadius: BorderRadius.circular(12),
@@ -39,7 +39,7 @@ class _DeadlineButtonState extends State<DeadlineButton> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('${widget.controller!.text}',style: TextStyle(color: Colors.black26,),),
-            Icon(Icons.keyboard_arrow_down,size: 35,color: Colors.black26,)
+            Icon(Icons.date_range,size: 25,color: Colors.black26,)
           ],
         ),
       ),

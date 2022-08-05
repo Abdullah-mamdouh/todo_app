@@ -22,10 +22,12 @@ class _MyDropDownButtonState extends State<MyDropDownButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(4),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(15),
         color: Colors.black12,//constantColors.blackLight2,
-        border: Border.all(width: 0.35,
+        border: Border.all(
+          //width: 0.35,
           color: Colors.black12,//constantColors.whiteColor,
         ),
       ),
@@ -36,7 +38,7 @@ class _MyDropDownButtonState extends State<MyDropDownButton> {
           underline: SizedBox(),
           borderRadius: BorderRadius.circular(20),
           value: widget.selectedValue!.text,
-          dropdownColor: Colors.indigo[600],
+          dropdownColor: Colors.teal[300],
           isExpanded: true,
           icon: Icon(Icons.keyboard_arrow_down,
             color: Colors.black26,//constantColors.whiteColor,
@@ -58,10 +60,7 @@ class _MyDropDownButtonState extends State<MyDropDownButton> {
             });
           },
         ),
-        padding: EdgeInsets.only(
-          left: 10,
-          right: 10,
-        ),
+
       ),
     );;
   }

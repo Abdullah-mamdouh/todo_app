@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:todo/utils/constant_color/constant_colors.dart';
 
@@ -51,8 +53,8 @@ class _MyCheckboxState extends State<MyCheckbox> {
           color: isCompleted ? constantColors.primaryColor : constantColors.baseColor,
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
           border: Border.all(
-            color: constantColors.primaryColor,
-            width: 1.0,
+            color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+            width: 1.5,
           ),
         ),
       ),

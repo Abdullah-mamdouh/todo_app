@@ -18,8 +18,8 @@ class _TimeState extends State<Time> {
   @override
   void initState() {
     time = TimeOfDay.now();
-    widget.controller!.text = //DateFormat("hh:mm a").format(time).toString();//
-     '${time!.hour} : ${time!.minute}  ${time!.period.name}';
+    widget.controller!.text = //DateFormat("HH:mm ").format(time).toString();//
+     '${time!.hour}:${time!.minute} ${(time!.period.name).toUpperCase()}';
     super.initState();
   }
   @override
@@ -60,7 +60,7 @@ class _TimeState extends State<Time> {
     //if (timeOfDay != null && timeOfDay != this.time)
       setState(() {
         this.time = timeOfDay;
-        widget.controller!.text = '${time!.hour} : ${time!.minute} ${time!.period.name}';
+        widget.controller!.text = '${time!.hour}:${time!.minute} ${(time!.period.name).toUpperCase()}';
       });
 
   }

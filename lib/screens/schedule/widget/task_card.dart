@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:todo/utils/constant_color/constant_colors.dart';
@@ -24,7 +26,7 @@ class _TaskCardState extends State<TaskCard> {
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
-            color: constantColors.primaryColor,
+            color: Colors.primaries[Random().nextInt(Colors.primaries.length)],//constantColors.primaryColor,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
